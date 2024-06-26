@@ -1,0 +1,25 @@
+{% extends "user/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'user/css/loginstyles.css' %}" />
+{% endblock %}
+
+{% block main-content %}
+<h2>Connexion</h2>
+
+<div class="form-holder">
+    <div class="form-content">
+        <div class="form-items">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" value="Connexion"></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<p><a href="{% url 'user:password_forgotten' %}" class="type1">Mot de passe
+    perdu</a></p>
+{% endblock %}
